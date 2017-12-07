@@ -1,0 +1,15 @@
+{
+  "name": "json-server",
+  "homepage": "https://github.com/typicode/json-server",
+  "version": "0.12.0",
+  "_release": "0.12.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.12.0",
+    "commit": "2ca499b584f3511f9d0f961829297a92354bf413"
+  },
+  "_source": "https://github.com/typicode/json-server.git",
+  "_target": "^0.12.0",
+  "_originalSource": "json-server",
+  "_direct": true
+}

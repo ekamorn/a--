@@ -1,0 +1,2856 @@
+html {
+	font-family: 'db_airystd_med';
+	overflow-x: hidden;
+}
+
+body {
+	background: url(../image/v02/bg-mini.png);
+	background-repeat: repeat;
+	background-size: 60%;
+	background-color: #fafafa;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'db_airystd_bd';
+	margin: 0 0 35px;
+	letter-spacing: 1px;
+}
+
+#all-wrap {
+	min-height: 100%;
+}
+
+/* Preload css */
+#loader-wrapper {
+	position: fixed;
+	display: grid;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #2b3143;
+	z-index: 1000;
+}
+
+@keyframes clockwise {
+	to {
+		transform: rotate(360deg) translateZ(0);
+	}
+}
+
+@-webkit-keyframes clockwise {
+	to {
+		transform: rotate(360deg) translateZ(0);
+	}
+}
+
+@-moz-keyframes clockwise {
+	to {
+		transform: rotate(360deg) translateZ(0);
+	}
+}
+
+#loader-collection {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	transform: translate(-50%,-50%);
+}
+
+#loader{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: transparent;
+	width:  8px;
+	height: 8px;
+	border-radius: 100%;
+	box-shadow:
+	     12px -12px rgba(254, 120, 39, 0.125),
+	     17px     0 rgba(254, 120, 39, 0.250),
+	     12px  12px rgba(254, 120, 39, 0.375),
+	        0  17px rgba(254, 120, 39, 0.500),
+	    -12px  12px rgba(254, 120, 39, 0.625),
+	    -17px     0 rgba(254, 120, 39, 0.750),
+	    -12px -12px rgba(254, 120, 39, 0.875),
+	        0 -17px rgba(254, 120, 39, 1.000);
+
+	-webkit-animation: clockwise 0.74s steps(8, end) infinite;
+	-moz-animation: clockwise 0.74s steps(8, end) infinite;
+	animation: clockwise 0.75s steps(8, end) infinite;
+}
+
+#loader-collection {
+	display: block;
+}
+
+#loader-running {
+	display: block;
+	margin-top: 35px;
+}
+
+#loader-collection #loader-pic {
+	max-width: 120px;
+}
+
+#loader-collection #loader-pic .image-loader {
+	display: block;
+	width: 100%;
+}
+
+/*#loader-wrapper .loader-section {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #2b3143;
+	z-index: 1000;
+	-webkit-transform: translateX(0);
+	-moz-transform: translateX(0);
+	-ms-transform: translateX(0);
+	transform: translateX(0);
+}
+*/
+.loaded #loader-wrapper .loader-section {
+	opacity: 0;
+
+	-webkit-transition: all .7s .3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+	-moz-transition: all .7s .3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+	transition: all .7s .3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+.loaded #loader-pic,
+.loaded #loader {
+	transform: scale(0,0) rotate(35deg);
+
+	opacity: 0;
+	-webkit-transition: all .3s ease-out;
+	-moz-transition: all .3s ease-out;
+	transition: all .3s ease-out;
+}
+
+.loaded #loader-wrapper {
+	visibility: hidden;
+
+	transform: translateY(100%);
+	-webkit-transform: translateY(100%);
+	-moz-transform: translateY(100%);
+
+	-webkit-transform-origin: bottom;
+	-moz-transform-origin: bottom;
+	transform-origin: bottom;
+	/*opacity: 0;*/
+
+	-webkit-transition: all .3s 1s ease-out;
+	-moz-transition: all .3s 1s ease-out;
+	transition: all .3s 1s ease-out;
+}
+
+/* Javascript Turn Off */
+.no-js #loader-wrapper {
+	display: none;
+}
+
+.parallax-header {
+	overflow: hidden;
+	transform: scale(1.2);
+}
+
+.parallax-header.active {
+	transform: scale(1);
+
+	transition: all .5s 1.1s ease-out;
+}
+
+.wrapper {
+	min-height: 950px;
+	padding: 0;
+	position: relative;
+	background: url(../image/v02/bg-2.png) no-repeat;
+	background-size: cover;
+	display: grid;
+}
+
+.cover-backpic {
+	margin: auto;
+	z-index: 1;
+}
+
+.head-label--collection {
+	position: relative;
+	
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	
+	padding: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+
+	-webkit-transform: skew(0deg, -3deg);
+	-moz-transform: skew(0deg, -3deg);
+	-ms-transform: skew(0deg, -3deg);
+	transform: skew(0deg, -3deg);
+
+	z-index: 2;
+}
+
+.label {
+	font-family: 'db_airystd_bd';
+	color: #fff;
+	margin-bottom: 0;
+	line-height: 1em;
+}
+
+.head-label {
+	font-size: 60px;
+	line-height: 1.2em;
+	background-color: #ef7827;
+	padding: 10px 40px;
+	display: inline-block;
+}
+
+.body-label--collection {
+	position: relative;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 30px 110px;
+	margin-top: -30px;
+
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+
+	-webkit-transform: skew(0deg, -3deg);
+	-moz-transform: skew(0deg, -3deg);
+	-ms-transform: skew(0deg, -3deg);
+	transform: skew(0deg, -3deg);
+
+	z-index: 1;
+}
+
+.body-label--collection:before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #393939;
+	top: 0;
+	left: 0;
+
+	z-index: -1;
+}
+
+.body-label--collection:after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+	top: 20px;
+	left: 20px;
+
+	z-index: -2;
+}
+
+.big-body-label {
+	font-size: 8rem
+}
+
+.small-body-label {
+	font-size: 4rem;
+	line-height: .5em;
+}
+
+/* Parallax */
+@import "compass/css3";
+
+@mixin dimension($diameter) {
+	margin: -($diameter / 2) 0 0 0-($diameter / 2);
+	height: $diameter;
+	width: $diameter;
+}
+
+.mascot {
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+
+	position: absolute;
+	width: 200px;
+	/*box-shadow: ()*/
+}
+
+#mascot-1 {
+	@include dimension(150px);
+
+	z-index: 20;
+	bottom: -4%;
+	left: 85%;
+}
+
+#mascot-2 {
+	@include dimension(200px);
+
+	z-index: 10;
+	bottom: -4%;
+	left: 70%;
+}
+
+#mascot-3 {
+	@include dimension(200px);
+	z-index: 25;
+	bottom: -3%;
+	left: 43%;
+}
+
+#mascot-4 {
+	@include dimension(200px);
+	z-index: 20;
+	bottom: -6%;
+	left: 20%;
+}
+
+#mascot-5 {
+	@include dimension(200px);
+	z-index: 15;
+	bottom: -3%;
+	left: 0%;
+}
+
+#mascot-6 {
+	@include dimension(200px);
+	z-index: 15;
+	top: 20%;
+	left: -1.5%;
+}
+
+#mascot-7 {
+	@include dimension(200px);
+	z-index: 0;
+	top: 25%;
+	left: 28%;
+}
+
+#mascot-8 {
+	@include dimension(200px);
+	z-index: 0;
+	top: 21%;
+	left: 59%;
+}
+
+.img-mascot {
+	position: relative;
+}
+
+.mascot-day1 .img-mascot {
+	width: 280px;
+}
+
+.mascot-day2 .img-mascot {
+	width: 240px;
+}
+
+.mascot-day3 .img-mascot {
+	width: 300px;
+}
+
+.mascot-day4 .img-mascot {
+	width: 270px;
+}
+
+.mascot-day5 .img-mascot {
+	width: 250px;
+}
+
+.mascot-day6 .img-mascot {
+	width: 220px;
+}
+
+.mascot-day7 .img-mascot {
+	width: 205px;
+}
+
+.mascot-day8 .img-mascot {
+	width: 200px;
+}
+
+/* body content */
+.second-content--collection {
+	margin-top: 80px;
+}
+
+.fourth-content--collection .container,
+.fifth-content--collection .container,
+.sixth-content--collection .container {
+	padding-top: 80px;
+	padding-bottom: 80px;
+	border-bottom: 2px solid rgba(43,49,67,.25);
+}
+
+.list-horo-button-collection {
+	display: block;
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	margin-top: 50px;
+}
+
+.list-horo-button-collection ul.list-horo-button {
+	list-style-type: none;
+	padding-left: 0;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+}
+
+.list-horo-button-collection ul.list-horo-button li {
+	display: block;
+	display: inline-block;
+	margin-left: -6px;
+}
+
+.list-horo-button-collection ul.list-horo-button li a {
+	padding: 5px 70px;
+	display: block;
+	font-family: 'db_airystd_med';
+	font-size: 2rem;
+	color: #fe7827;
+	border: 2px solid #393939;
+
+	-webkit-transition: all .3s ease-out;
+	-moz-transition: all .3s ease-out;
+	transition: all .3s ease-out;
+}
+
+.list-horo-button-collection ul.list-horo-button li a.active,
+.list-horo-button-collection ul.list-horo-button li a:hover,
+.list-horo-button-collection ul.list-horo-button li a:focus {
+	color: #fff;
+	background-color: #fe7827;
+	text-decoration: none;
+}
+
+.daily-head-collection,
+.weekly-head-collection,
+.article-head-collection,
+.quiz-head-collection {
+	position: relative;
+	display: block;
+	background-color: #2b3143;
+	width: 400px;
+	max-width: 400px;
+	margin-left: auto !important;
+	margin-right: auto !important;
+
+	-webkit-transform: skewY(-2deg);
+	-moz-transform: skewY(-2deg);
+	transform: skewY(-2deg);
+}
+
+.daily-head-collection:before,
+.weekly-head-collection:before,
+.article-head-collection:before,
+.quiz-head-collection:before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	background-color: #2b3143;
+}
+
+.daily-head-collection:after,
+.weekly-head-collection:after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 10px;
+	left: 10px;
+	z-index: -2;
+	background-color: #ED523A;
+}
+
+.article-head-collection:after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 10px;
+	left: 10px;
+	z-index: -2;
+	background-color: #97ABFF;
+}
+
+.quiz-head-collection:after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 10px;
+	left: 10px;
+	z-index: -2;
+	background-color: #FEB94D;
+}
+
+.head-big-head {
+	display: block;
+	color: #fff;
+	text-align: center;
+	margin: 10px 50px;
+	font-family: 'db_airystd_bd';
+	font-size: 3.2rem;
+}
+
+.head-big-head span {
+	color: #fe7827;
+}
+
+.body-collection {
+	margin-top: 100px;
+}
+
+.daily-body-collection {
+	width: 100%;
+}
+
+.daily-head-label {
+	font-family: 'db_airystd_li_it';
+	font-size: 2.3rem;
+	text-align: center;
+	display: block;
+}
+
+.daily-card-collection {
+	width: 90%;
+	text-align: center;
+	margin-right: auto !important;
+	margin-left: auto !important;
+}
+
+.each-daily-tarot-card {
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	width: 220px;
+	height: 320px;
+
+	-webkit-transition: all .3s ease-out;
+	-moz-transition: all .3s ease-out;
+	transition: all .3s ease-out;
+}
+
+
+.img-each-daily-tarot-card {
+	width: 100%;
+	height: 100%;
+	border: 4px solid #fff;
+	background: url(../image/v02/a-duang-card-2.png) no-repeat center;
+	background-size: cover;
+
+	-webkit-transition: all .1s ease-out;
+	-moz-transition: all .1s ease-out;
+	transition: all .1s ease-out;
+}
+
+.img-each-daily-tarot-card:hover,
+.img-each-daily-tarot-card:focus {
+	-webkit-transform:translateY(-20px);
+	-moz-transform: translateY(-20px);
+	transform: translateY(-20px);
+
+	background: url(../image/v02/a-duang-card-2-2.png) no-repeat center;
+	background-size: cover;
+}
+
+/*.each-daily-tarot-card:before {
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 100%;
+	background: url(../image/v02/a-duang-card-2.png) no-repeat;
+	border: 4px solid #fff;
+
+	-webkit-background-size: cover;
+}*/
+
+.each-daily-tarot-card:nth-child(2),
+.each-daily-tarot-card:nth-child(3),
+.each-daily-tarot-card:nth-child(4),
+.each-daily-tarot-card:nth-child(5),
+.each-daily-tarot-card:nth-child(6),
+.each-daily-tarot-card:nth-child(7),
+.each-daily-tarot-card:nth-child(8) {
+	margin-left: -110px;
+}
+
+.each-daily-tarot-card:nth-child(1) {
+	transform: rotateZ(-33deg) translateY(115px);
+}
+
+.each-daily-tarot-card:nth-child(2) {
+	transform: rotateZ(-20deg) translateY(60px);
+}
+
+.each-daily-tarot-card:nth-child(3) {
+	transform: rotateZ(-10deg) translateY(30px);
+}
+
+.each-daily-tarot-card:nth-child(4) {
+	transform: rotateZ(-3deg) translateY(10px);
+}
+
+.each-daily-tarot-card:nth-child(5) {
+	transform: rotateZ(3deg) translateY(10px);
+}
+
+.each-daily-tarot-card:nth-child(6) {
+	transform: rotateZ(10deg) translateY(30px);
+}
+
+.each-daily-tarot-card:nth-child(7) {
+	transform: rotateZ(20deg) translateY(60px);
+}
+
+.each-daily-tarot-card:nth-child(8) {
+	transform: rotateZ(33deg) translateY(115px);
+}
+
+
+.third-content--collection {
+	position: relative;
+	background: url(../image/v02/bg-1.png) no-repeat;
+	padding: 70px 20px;
+}
+
+.each-tarot-card-collection {
+	position: relative;
+	display: block;
+	width: 200px;
+	height: 300px;
+	margin-left: auto;
+	margin-right: auto;
+
+	-webkit-transform: rotateZ(-10deg);
+	-moz-transform: rotateZ(-10deg);
+	transform: rotateZ(-10deg);
+}
+
+.each-tarot-card-collection:before {
+	background: url(../image/v02/706254.jpg) no-repeat;
+	background-size: cover;
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 5px solid #fff;
+	z-index: 1;
+}
+
+.each-tarot-card-collection:after {
+	background: url(../image/v02/a-duang-card-2.png) no-repeat;
+	background-position: center;
+	background-size: cover;
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 100px;
+	width: 88%;
+	height: 88%;
+	border: 5px solid #fff;
+	z-index: -1;
+
+	transform: rotateZ(20deg);
+}
+
+.tarot-card-name,
+.tarot-card-meaning {
+	color: #fff;
+	font-family: 'db_airystd';
+	font-size: 1.5rem;
+}
+
+.tarot-card-name {
+	font-family: 'db_airystd_bd';
+	font-size: 2.7rem;
+	color: #fe7827;
+}
+
+.weekly-btn--zodiac {
+	margin-bottom: 50px;
+	padding-left: 20px;
+	padding-right: 20px;
+
+	display: none;
+}
+
+.weekly-btn--zodiac.active {
+	display: block;
+}
+
+.weekly-btn-zodiac-link {
+	display: block;
+
+	-webkit-transition: all .1s ease-out;
+	-moz-transition: all .1s ease-out;
+	transition: all .1s ease-out;
+}
+
+.weekly-btn-zodiac-link:hover,
+.weekly-btn-zodiac-link:active {
+	-webkit-transform: translateY(-20px);
+	-moz-transform: translateY(-20px);
+	transform: translateY(-20px);
+}
+
+.img-weekly-btn {
+	display: block;
+	width: 85%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.each-article-btn {
+	margin-bottom: 40px;
+}
+
+.each-article-btn-link {
+	background: #fff;
+	display: block;
+	box-shadow: 0px 3px 3px rgba(0,0,0,.1);
+	font-family: 'db_airystd';
+	font-size: 1.4rem;
+	color: #2b3143;
+	border-radius: 3px;
+}
+
+.each-article-btn-link:hover,
+.each-article-btn-link:focus,
+.each-article-btn-link:active {
+	color: #2b3143;
+	text-decoration: none;
+}
+
+.each-article-cover-pic {
+	width: 100%;
+	min-height: 150px;
+	background-color: #2b3143;
+}
+
+.each-article-info-collection {
+	padding: 10px;
+}
+
+.each-article-name {
+	font-weight: 700;
+	color: #fe7827;
+	margin-bottom: 0;
+	overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+}
+
+.each-article-creator {
+	font-size: 1.3rem;
+	margin-bottom: 5px;
+}
+
+.each-article-creator span {
+	font-weight: 700;
+}
+
+.article-see-more-btn-collection {
+	text-align: center;
+}
+
+.article-see-more-btn-collection {
+	margin-top: 40px;
+}
+
+.article-see-more-btn {
+	width: 30%;
+	margin-right: auto;
+	margin-left: auto;
+	display: block;
+	color: #fe7827;
+	font-family: 'db_airystd_bd';
+	font-size: 1.8rem;
+	border: 1px solid #fe7827;
+	padding: 8px;
+	box-shadow: 15px 15px 0px 0px #fe7827, 14px 14px 0px 0px #fe7827, 13px 13px 0px 0px #fe7827, 12px 12px 0px 0px #fe7827, 11px 11px 0px 0px #fe7827, 10px 10px 0px 0px #fe7827, 9px 9px 0px 0px #fe7827, 8px 8px 0px 0px #fe7827, 7px 7px 0px 0px #fe7827, 6px 6px 0px 0px #fe7827, 5px 5px 0px 0px #fe7827, 4px 4px 0px 0px #fe7827, 3px 3px 0px 0px #fe7827, 2px 2px 0px 0px #fe7827, 1px 1px 0px 0px #fe7827, 0px 0px 0px 0px #fe7827;
+
+	-webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	transition: all .3s ease; 
+}
+
+.article-see-more-btn:hover,
+.article-see-more-btn:focus,
+.article-see-more-btn:active {
+	text-decoration: none;
+	color: #fe7827;
+	box-shadow: 0px 0px 0px 0px #fe7827;
+}
+
+
+/* /body content */
+
+
+@media(min-width: 320px) {
+	.wrapper {
+		min-height: 570px;
+	}
+
+	.head-label {
+		font-size: 1.6rem;
+		padding: 10px 15px;
+	}
+
+	.body-label--collection {
+		padding: 30px 40px;
+	}
+
+	.big-body-label {
+		font-size: 2.6rem;
+	}
+
+	.small-body-label {
+		font-size: 2.2rem;
+	}
+
+	.body-label--collection:after {
+		top: 10px;
+		left: 10px;
+	}
+
+	#mascot-1 {
+		bottom: -1%;
+	}
+
+	#mascot-2 {
+		bottom: -1%;
+		left: 65%;
+	}
+
+	#mascot-3 {
+		bottom: 0%;
+	}
+
+	#mascot-4 {
+		bottom: -2%;
+		left: 24%;
+	}
+
+	#mascot-5 {
+		bottom: -1%;
+	}
+
+	#mascot-6 {
+		top: 10%;
+	}
+
+	#mascot-7 {
+		left: 7%;
+		top: 31.5%;
+	}
+
+	#mascot-8 {
+		left: 75%;
+		top: 30%;
+	}
+
+	.mascot-day1 .img-mascot {
+		width: 50px;
+	}
+
+	.mascot-day2 .img-mascot {
+		width: 60px;
+	}
+
+	.mascot-day3 .img-mascot {
+		width: 65px;
+	}
+
+	.mascot-day4 .img-mascot {
+		width: 55px;
+	}
+
+	.mascot-day5 .img-mascot {
+		width: 70px;
+	}
+
+	.mascot-day6 .img-mascot {
+		width: 70px;
+	}
+
+	.mascot-day7 .img-mascot {
+		width: 70px;
+	}
+
+	.mascot-day8 .img-mascot {
+		width: 70px;
+		/*transform: rotateZ(-45deg);*/
+	}
+
+	.daily-head-collection, 
+	.weekly-head-collection, 
+	.article-head-collection, 
+	.quiz-head-collection {
+		width: 250px;
+		max-width: 250px;
+	}
+
+	.head-big-head {
+		font-size: 2rem;
+		margin: 10px 20px;
+	}
+
+	.daily-head-label {
+		font-size: 1.5rem;
+		margin-bottom: 0;
+	}
+
+	.each-daily-tarot-card {
+		width: 100px;
+		height: 154px;
+	}
+
+	.each-daily-tarot-card:nth-child(1) {
+		transform: rotateZ(0deg) translateY(30px);
+	}
+
+	.each-daily-tarot-card:nth-child(2), 
+	.each-daily-tarot-card:nth-child(3), 
+	.each-daily-tarot-card:nth-child(4), 
+	.each-daily-tarot-card:nth-child(5), 
+	.each-daily-tarot-card:nth-child(6), 
+	.each-daily-tarot-card:nth-child(7), 
+	.each-daily-tarot-card:nth-child(8) {
+		margin-left: -80px;
+		transform: rotateZ(0deg) translateY(30px);
+	}
+
+	.each-tarot-card-collection {
+		width: 100px;
+		height: 159px;
+		margin-left: 50px;
+		margin-right: auto;
+	}
+
+	.each-tarot-card-collection:after {
+		left: 60px;
+	}
+
+	.tarot-card-collection {
+		margin-bottom: 25px;
+	}
+
+	#loader-wrapper {
+		width: 100%;
+		min-height: 100%;
+
+	}
+
+	.body-collection {
+		margin-top: 60px;
+	}
+
+	.tarot-card-name, 
+	.tarot-card-meaning {
+		font-size: 1.1rem;
+		text-align: center;
+	}
+
+	.tarot-card-name {
+		font-size: 1.8rem;
+	}
+
+	.parallax-header {
+		transform: scale(1);
+	}
+
+	.weekly-btn--zodiac {
+		margin-bottom: 30px;
+	}
+
+	.daily-card-collection {
+		margin-top: -10px;
+	}
+
+	.each-article-name {
+		font-size: 1rem;
+	}
+
+	.each-article-creator {
+		font-size: .95rem;
+	}
+
+	.each-article-btn {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+
+	.article-see-more-btn {
+		font-size: 1.2rem;
+	}
+
+	.article-see-more-btn {
+		width: 50%;
+
+		box-shadow: 10px 10px 0px 0px #fe7827, 
+					9px 9px 0px 0px #fe7827, 
+					8px 8px 0px 0px #fe7827, 
+					7px 7px 0px 0px #fe7827, 
+					6px 6px 0px 0px #fe7827, 
+					5px 5px 0px 0px #fe7827, 
+					4px 4px 0px 0px #fe7827, 
+					3px 3px 0px 0px #fe7827, 
+					2px 2px 0px 0px #fe7827, 
+					1px 1px 0px 0px #fe7827, 
+					0px 0px 0px 0px #fe7827;
+	}
+
+	.article-see-more-btn-collection {
+		margin-top: 20px;
+	}
+}
+
+@media(min-width: 360px) {
+	.wrapper {
+		min-height: 640px;
+	}
+
+	.each-article-creator {
+		font-size: 1.05rem;
+	}
+
+	.each-article-name {
+		font-size: 1.2rem;
+	}
+
+	.each-tarot-card-collection {
+		margin-left: 70px;
+	}
+
+	.mascot-day1 .img-mascot {
+		width: 55px;
+	}
+
+	.mascot-day2 .img-mascot {
+		width: 65px;
+	}
+
+	.mascot-day3 .img-mascot {
+		width: 70px;
+	}
+
+	.mascot-day4 .img-mascot {
+		width: 60px;
+	}
+
+	.mascot-day5 .img-mascot {
+		width: 75px;
+	}
+
+	.mascot-day6 .img-mascot {
+		width: 75px;
+	}
+
+	.mascot-day7 .img-mascot {
+		width: 75px;
+	}
+
+	.mascot-day8 .img-mascot {
+		width: 75px;
+		/*transform: rotateZ(-45deg);*/
+	}
+
+	#mascot-1 {
+		bottom: -1%;
+	}
+
+	#mascot-2 {
+		bottom: -1%;
+		left: 65%;
+	}
+
+	#mascot-3 {
+		bottom: 0%;
+	}
+
+	#mascot-4 {
+		bottom: -2%;
+		left: 24%;
+	}
+
+	#mascot-5 {
+		bottom: -1%;
+	}
+
+	#mascot-6 {
+		top: 10%;
+	}
+
+	#mascot-7 {
+		left: 8%;
+		top: 33%;
+	}
+
+	#mascot-8 {
+		left: 70%;
+		top: 31%;
+	}
+}
+
+@media(min-width: 375px) {
+
+	.wrapper {
+		min-height: 667px;
+	}
+
+	.each-article-creator {
+		font-size: 1.1rem;
+	}
+
+	.each-article-name {
+		font-size: 1.28rem;
+	}
+
+	.each-tarot-card-collection {
+		margin-left: 80px;
+	}
+
+	.each-tarot-card-collection {
+		margin-left: 70px;
+	}
+
+	.mascot-day1 .img-mascot {
+		width: 65px;
+	}
+
+	.mascot-day2 .img-mascot {
+		width: 70px;
+	}
+
+	.mascot-day3 .img-mascot {
+		width: 75px;
+	}
+
+	.mascot-day4 .img-mascot {
+		width: 65px;
+	}
+
+	.mascot-day5 .img-mascot {
+		width: 75px;
+	}
+
+	.mascot-day6 .img-mascot {
+		width: 75px;
+	}
+
+	.mascot-day7 .img-mascot {
+		width: 80px;
+	}
+
+	.mascot-day8 .img-mascot {
+		width: 80px;
+		/*transform: rotateZ(-45deg);*/
+	}
+
+	#mascot-1 {
+		bottom: -1%;
+	}
+
+	#mascot-2 {
+		bottom: -1%;
+		left: 65%;
+	}
+
+	#mascot-3 {
+		bottom: 0%;
+	}
+
+	#mascot-4 {
+		bottom: -2%;
+		left: 24%;
+	}
+
+	#mascot-5 {
+		bottom: -1%;
+	}
+
+	#mascot-6 {
+		top: 10%;
+	}
+
+	#mascot-7 {
+		left: 8%;
+		top: 33.5%;
+	}
+
+	#mascot-8 {
+		left: 70%;
+		top: 31%;
+	}
+}
+
+@media(min-width: 412px) {
+	.wrapper {
+		min-height: 736px;
+	}
+
+	.each-tarot-card-collection {
+		margin-left: 100px;
+	}
+
+	.each-article-creator {
+		font-size: 1.2rem;
+	}
+
+	.each-article-name {
+		font-size: 1.3rem;
+	}
+
+	.each-tarot-card-collection {
+		margin-left: 80px;
+	}
+
+	.each-tarot-card-collection {
+		margin-left: 70px;
+	}
+
+	.mascot-day1 .img-mascot {
+		width: 70px;
+	}
+
+	.mascot-day2 .img-mascot {
+		width: 75px;
+	}
+
+	.mascot-day3 .img-mascot {
+		width: 80px;
+	}
+
+	.mascot-day4 .img-mascot {
+		width: 70px;
+	}
+
+	.mascot-day5 .img-mascot {
+		width: 80px;
+	}
+
+	.mascot-day6 .img-mascot {
+		width: 80px;
+	}
+
+	.mascot-day7 .img-mascot {
+		width: 80px;
+	}
+
+	.mascot-day8 .img-mascot {
+		width: 80px;
+		/*transform: rotateZ(-45deg);*/
+	}
+
+	#mascot-1 {
+		bottom: -1%;
+	}
+
+	#mascot-2 {
+		bottom: -1%;
+		left: 65%;
+	}
+
+	#mascot-3 {
+		bottom: 0%;
+	}
+
+	#mascot-4 {
+		bottom: -2%;
+		left: 24%;
+	}
+
+	#mascot-5 {
+		bottom: -1%;
+	}
+
+	#mascot-6 {
+		top: 10%;
+	}
+
+	#mascot-7 {
+		left: 13%;
+		top: 35%;
+	}
+
+	#mascot-8 {
+		left: 70%;
+		top: 33%;
+	}
+}
+
+@media(min-width: 568px) {
+	.wrapper {
+		min-height: 360px;
+	}
+
+	.body-label--collection {
+		padding: 30px 60px 20px;
+	}
+
+	.each-tarot-card-collection {
+		margin-left: 100px;
+	}
+
+	.each-article-creator {
+		font-size: 1.2rem;
+	}
+
+	.each-article-name {
+		font-size: 1.3rem;
+	}
+
+	.img-weekly-btn {
+		width: 50%;
+	}
+
+	.each-article-btn {
+		padding-right: 40px;
+		padding-left: 40px;
+	}
+
+	.each-tarot-card-collection {
+		margin-left: 80px;
+	}
+
+	.each-tarot-card-collection {
+		margin-left: 175px;
+	}
+
+	.mascot-day1 .img-mascot {
+		width: 70px;
+	}
+
+	.mascot-day2 .img-mascot {
+		width: 75px;
+	}
+
+	.mascot-day3 .img-mascot {
+		width: 80px;
+	}
+
+	.mascot-day4 .img-mascot {
+		width: 70px;
+	}
+
+	.mascot-day5 .img-mascot {
+		width: 80px;
+	}
+
+	.mascot-day6 .img-mascot {
+		width: 80px;
+	}
+
+	.mascot-day7 .img-mascot {
+		width: 80px;
+	}
+
+	.mascot-day8 .img-mascot {
+		width: 80px;
+		/*transform: rotateZ(-45deg);*/
+	}
+
+	#mascot-1 {
+		bottom: -1%;
+	}
+
+	#mascot-2 {
+		bottom: -1%;
+		left: 65%;
+	}
+
+	#mascot-3 {
+		bottom: 0%;
+	}
+
+	#mascot-4 {
+		bottom: -2%;
+		left: 24%;
+	}
+
+	#mascot-5 {
+		bottom: -1%;
+	}
+
+	#mascot-6 {
+		top: 10%;
+	}
+
+	#mascot-7 {
+		left: 20%;
+		top: 21%;
+	}
+
+	#mascot-8 {
+		left: 65%;
+		top: 17%;
+	}
+}
+
+@media(min-width: 600px) {
+	.wrapper {
+		min-height: 960px;
+	}
+
+	.body-label--collection {
+		padding: 30px 60px 20px;
+	}
+
+	.each-tarot-card-collection {
+		margin-left: 100px;
+	}
+
+	.big-body-label {
+		font-size: 3rem;
+	}
+
+	.head-label {
+		font-size: 2rem;
+	}
+
+	.img-weekly-btn {
+		width: 70%;
+	}
+
+	.each-article-btn {
+		padding-right: 5px;
+		padding-left: 5px;
+	}
+
+	.small-body-label {
+		font-size: 2.4rem;
+	}
+
+	.each-article-creator {
+		font-size: 1.2rem;
+	}
+
+	.each-article-name {
+		font-size: 1.3rem;
+	}
+
+	.each-tarot-card-collection {
+		margin-left: 80px;
+	}
+
+	.tarot-card-name, .tarot-card-meaning {
+		text-align: left;
+	}
+
+	.each-tarot-card-collection {
+		margin-left: auto;
+		width: 121px;
+		height: 197px;
+	}
+
+	.mascot-day1 .img-mascot {
+		width: 110px;
+	}
+
+	.mascot-day2 .img-mascot {
+		width: 115px;
+	}
+
+	.mascot-day3 .img-mascot {
+		width: 125px;
+	}
+
+	.mascot-day4 .img-mascot {
+		width: 110px;
+	}
+
+	.mascot-day5 .img-mascot {
+		width: 120px;
+	}
+
+	.mascot-day6 .img-mascot {
+		width: 120px;
+	}
+
+	.mascot-day7 .img-mascot {
+		width: 120px;
+	}
+
+	.mascot-day8 .img-mascot {
+		width: 120px;
+		/*transform: rotateZ(-45deg);*/
+	}
+
+	#mascot-1 {
+		bottom: -1%;
+	}
+
+	#mascot-2 {
+		bottom: -1%;
+		left: 65%;
+	}
+
+	#mascot-3 {
+		bottom: 0%;
+	}
+
+	#mascot-4 {
+		bottom: -2%;
+		left: 24%;
+	}
+
+	#mascot-5 {
+		bottom: -1%;
+	}
+
+	#mascot-6 {
+		top: 10%;
+	}
+
+	#mascot-7 {
+		left: 17%;
+		top: 35%;
+	}
+
+	#mascot-8 {
+		left: 65%;
+		top: 33.5%;
+	}
+}
+
+@media(min-width: 640px) {
+	.wrapper {
+		min-height: 360px;
+	}
+
+	.body-label--collection {
+		padding: 30px 60px 20px;
+	}
+
+	.each-tarot-card-collection {
+		margin-left: 100px;
+	}
+
+	.each-article-creator {
+		font-size: 1.2rem;
+	}
+
+	.each-article-name {
+		font-size: 1.3rem;
+	}
+
+	.img-weekly-btn {
+		width: 65%;
+	}
+
+	.each-article-btn {
+		padding-right: 5px;
+		padding-left: 5px;
+	}
+
+	.each-tarot-card-collection {
+		margin-left: 80px;
+	}
+
+	.each-tarot-card-collection {
+		margin-left: auto;
+	}
+
+	.mascot-day1 .img-mascot {
+		width: 70px;
+	}
+
+	.mascot-day2 .img-mascot {
+		width: 75px;
+	}
+
+	.mascot-day3 .img-mascot {
+		width: 80px;
+	}
+
+	.mascot-day4 .img-mascot {
+		width: 70px;
+	}
+
+	.mascot-day5 .img-mascot {
+		width: 80px;
+	}
+
+	.mascot-day6 .img-mascot {
+		width: 80px;
+	}
+
+	.mascot-day7 .img-mascot {
+		width: 80px;
+	}
+
+	.mascot-day8 .img-mascot {
+		width: 80px;
+		/*transform: rotateZ(-45deg);*/
+	}
+
+	#mascot-1 {
+		bottom: -1%;
+	}
+
+	#mascot-2 {
+		bottom: -1%;
+		left: 65%;
+	}
+
+	#mascot-3 {
+		bottom: 0%;
+	}
+
+	#mascot-4 {
+		bottom: -2%;
+		left: 24%;
+	}
+
+	#mascot-5 {
+		bottom: -1%;
+	}
+
+	#mascot-6 {
+		top: 10%;
+	}
+
+	#mascot-7 {
+		left: 23%;
+		top: 23%;
+	}
+
+	#mascot-8 {
+		left: 65%;
+		top: 17%;
+	}
+}
+
+@media(min-width: 667px) {
+	.wrapper {
+		min-height: 375px;
+	}
+
+	.body-label--collection {
+		padding: 30px 60px 20px;
+	}
+
+	.each-tarot-card-collection {
+		margin-left: 100px;
+	}
+
+	.each-article-creator {
+		font-size: 1.2rem;
+	}
+
+	.each-article-name {
+		font-size: 1.3rem;
+	}
+
+	.img-weekly-btn {
+		width: 65%;
+	}
+
+	.each-article-btn {
+		padding-right: 5px;
+		padding-left: 5px;
+	}
+
+	.each-tarot-card-collection {
+		margin-left: 80px;
+	}
+
+	.each-tarot-card-collection {
+		margin-left: auto;
+	}
+
+	.mascot-day1 .img-mascot {
+		width: 70px;
+	}
+
+	.mascot-day2 .img-mascot {
+		width: 75px;
+	}
+
+	.mascot-day3 .img-mascot {
+		width: 80px;
+	}
+
+	.mascot-day4 .img-mascot {
+		width: 70px;
+	}
+
+	.mascot-day5 .img-mascot {
+		width: 80px;
+	}
+
+	.mascot-day6 .img-mascot {
+		width: 80px;
+	}
+
+	.mascot-day7 .img-mascot {
+		width: 80px;
+	}
+
+	.mascot-day8 .img-mascot {
+		width: 80px;
+		/*transform: rotateZ(-45deg);*/
+	}
+
+	#mascot-1 {
+		bottom: -1%;
+	}
+
+	#mascot-2 {
+		bottom: -1%;
+		left: 65%;
+	}
+
+	#mascot-3 {
+		bottom: 0%;
+	}
+
+	#mascot-4 {
+		bottom: -2%;
+		left: 24%;
+	}
+
+	#mascot-5 {
+		bottom: -1%;
+	}
+
+	#mascot-6 {
+		top: 10%;
+	}
+
+	#mascot-7 {
+		left: 23%;
+		top: 23%;
+	}
+
+	#mascot-8 {
+		left: 65%;
+		top: 17%;
+	}
+}
+
+@media(min-width: 736px) {
+	.wrapper {
+		min-height: 414px;
+	}
+
+	.body-label--collection {
+		padding: 30px 60px 20px;
+	}
+
+	.each-tarot-card-collection {
+		margin-left: 100px;
+	}
+
+	.each-article-creator {
+		font-size: 1.2rem;
+	}
+
+	.each-article-name {
+		font-size: 1.3rem;
+	}
+
+	.img-weekly-btn {
+		width: 65%;
+	}
+
+	.each-article-btn {
+		padding-right: 5px;
+		padding-left: 5px;
+	}
+
+	.each-tarot-card-collection {
+		margin-left: 80px;
+	}
+
+	.each-tarot-card-collection {
+		margin-left: auto;
+	}
+
+	.mascot-day1 .img-mascot {
+		width: 70px;
+	}
+
+	.mascot-day2 .img-mascot {
+		width: 75px;
+	}
+
+	.mascot-day3 .img-mascot {
+		width: 80px;
+	}
+
+	.mascot-day4 .img-mascot {
+		width: 70px;
+	}
+
+	.mascot-day5 .img-mascot {
+		width: 80px;
+	}
+
+	.mascot-day6 .img-mascot {
+		width: 80px;
+	}
+
+	.mascot-day7 .img-mascot {
+		width: 80px;
+	}
+
+	.mascot-day8 .img-mascot {
+		width: 80px;
+		/*transform: rotateZ(-45deg);*/
+	}
+
+	#mascot-1 {
+		bottom: -1%;
+	}
+
+	#mascot-2 {
+		bottom: -1%;
+		left: 65%;
+	}
+
+	#mascot-3 {
+		bottom: 0%;
+	}
+
+	#mascot-4 {
+		bottom: -2%;
+		left: 24%;
+	}
+
+	#mascot-5 {
+		bottom: -1%;
+	}
+
+	#mascot-6 {
+		top: 10%;
+	}
+
+	#mascot-7 {
+		left: 25%;
+		top: 25%;
+	}
+
+	#mascot-8 {
+		left: 65%;
+		top: 21%;
+	}
+}
+
+@media(min-width: 768px) {
+	.img-weekly-btn {
+		width: 100%;
+	}
+
+	.each-daily-tarot-card:nth-child(2), 
+	.each-daily-tarot-card:nth-child(3), 
+	.each-daily-tarot-card:nth-child(4), 
+	.each-daily-tarot-card:nth-child(5), 
+	.each-daily-tarot-card:nth-child(6), 
+	.each-daily-tarot-card:nth-child(7), 
+	.each-daily-tarot-card:nth-child(8) {
+		margin-left: -40px;
+	}
+
+	.each-daily-tarot-card:nth-child(1) {
+		transform: rotateZ(-33deg) translateY(80px);
+	}
+
+	.each-daily-tarot-card:nth-child(2) {
+		transform: rotateZ(-20deg) translateY(50px);
+	}
+
+	.each-daily-tarot-card:nth-child(3) {
+		transform: rotateZ(-10deg) translateY(30px);
+	}
+
+	.each-daily-tarot-card:nth-child(4) {
+		transform: rotateZ(-3deg) translateY(20px);
+	}
+
+	.each-daily-tarot-card:nth-child(5) {
+		transform: rotateZ(3deg) translateY(20px);
+	}
+
+	.each-daily-tarot-card:nth-child(6) {
+		transform: rotateZ(10deg) translateY(30px);
+	}
+
+	.each-daily-tarot-card:nth-child(7) {
+		transform: rotateZ(20deg) translateY(50px);
+	}
+
+	.each-daily-tarot-card:nth-child(8) {
+		transform: rotateZ(33deg) translateY(80px);
+	}
+
+	.article-see-more-btn {
+		width: 35%;
+		font-size: 1.4rem;
+	}
+
+}
+
+@media(min-width: 800px) {
+	#mascot-7 {
+		left: 27%;
+		top: 25%;
+	}
+
+	#mascot-8 {
+		left: 62%;
+		top: 21%;
+	}
+}
+
+@media(min-width: 960px) {
+	.wrapper {
+		min-height: 600px;
+	}
+
+	.body-label--collection {
+		padding: 30px 100px 20px;
+	}
+
+	.each-tarot-card-collection {
+		margin-left: 100px;
+	}
+
+	.each-article-creator {
+		font-size: 1.2rem;
+	}
+
+	.each-article-name {
+		font-size: 1.3rem;
+	}
+
+	.img-weekly-btn {
+		width: 100%;
+	}
+
+	.each-article-btn {
+		padding-right: 5px;
+		padding-left: 5px;
+	}
+
+	.each-tarot-card-collection {
+		margin-left: 80px;
+	}
+
+	.each-tarot-card-collection {
+		margin-left: auto;
+	}
+
+	.mascot-day1 .img-mascot {
+		width: 130px;
+	}
+
+	.mascot-day2 .img-mascot {
+		width: 135px;
+	}
+
+	.mascot-day3 .img-mascot {
+		width: 140px;
+	}
+
+	.mascot-day4 .img-mascot {
+		width: 130px;
+	}
+
+	.mascot-day5 .img-mascot {
+		width: 140px;
+	}
+
+	.mascot-day6 .img-mascot {
+		width: 140px;
+	}
+
+	.mascot-day7 .img-mascot {
+		width: 140px;
+	}
+
+	.mascot-day8 .img-mascot {
+		width: 140px;
+		/*transform: rotateZ(-45deg);*/
+	}
+
+	#mascot-1 {
+		bottom: -1%;
+	}
+
+	#mascot-2 {
+		bottom: -1%;
+		left: 65%;
+	}
+
+	#mascot-3 {
+		bottom: 0%;
+	}
+
+	#mascot-4 {
+		bottom: -2%;
+		left: 24%;
+	}
+
+	#mascot-5 {
+		bottom: -1%;
+	}
+
+	#mascot-6 {
+		top: 10%;
+	}
+
+	#mascot-7 {
+		left: 25%;
+		top: 24%;
+	}
+
+	#mascot-8 {
+		left: 60%;
+		top: 20%;
+	}
+}
+
+@media(min-width: 1024px) {
+	.wrapper {
+		min-height: 768px;
+	}
+
+	#mascot-7 {
+		left: 27%;
+		top: 30%;
+	}
+
+	#mascot-8 {
+		left: 60%;
+		top: 27%;
+	}
+
+	.daily-card-collection {
+		margin-top: 10px;
+	}
+}
+
+@media(min-width: 1260px) {
+	.label {
+		font-family: 'db_airystd_bd';
+		color: #fff;
+		margin-bottom: 0;
+		line-height: 1em;
+	}
+
+	.head-label {
+		font-size: 60px;
+		line-height: 1.2em;
+		background-color: #ef7827;
+		padding: 10px 40px;
+		display: inline-block;
+	}
+
+	.body-label--collection {
+		position: relative;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 30px 110px;
+		margin-top: -30px;
+
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		background-size: cover;
+
+		-webkit-transform: skew(0deg, -3deg);
+		-moz-transform: skew(0deg, -3deg);
+		-ms-transform: skew(0deg, -3deg);
+		transform: skew(0deg, -3deg);
+
+		z-index: 1;
+	}
+
+	.body-label--collection:before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: #393939;
+		top: 0;
+		left: 0;
+
+		z-index: -1;
+	}
+
+	.body-label--collection:after {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: #fff;
+		top: 20px;
+		left: 20px;
+
+		z-index: -2;
+	}
+
+	.wrapper {
+		min-height: 800px;
+	}
+
+	.big-body-label {
+		font-size: 8rem
+	}
+
+	.small-body-label {
+		font-size: 4rem;
+		line-height: .5em;
+	}
+
+	#mascot-7 {
+		left: 20%;
+		top: 19%;
+	}
+
+	#mascot-8 {
+		left: 65%;
+		top: 17%;
+	}
+
+	.mascot-day1 .img-mascot {
+		width: 180px;
+	}
+
+	.mascot-day2 .img-mascot {
+		width: 190px;
+	}
+
+	.mascot-day3 .img-mascot {
+		width: 200px;
+	}
+
+	.mascot-day4 .img-mascot {
+		width: 190px;
+	}
+
+	.mascot-day5 .img-mascot {
+		width: 180px;
+	}
+
+	.mascot-day6 .img-mascot {
+		width: 190px;
+	}
+
+	.mascot-day7 .img-mascot {
+		width: 205px;
+	}
+
+	.mascot-day8 .img-mascot {
+		width: 200px;
+	}
+
+	/* body content */
+	.second-content--collection {
+		margin-top: 80px;
+	}
+
+	.fourth-content--collection .container,
+	.fifth-content--collection .container,
+	.sixth-content--collection .container {
+		padding-top: 80px;
+		padding-bottom: 80px;
+		border-bottom: 2px solid rgba(43,49,67,.25);
+	}
+
+	.daily-head-collection,
+	.weekly-head-collection,
+	.article-head-collection,
+	.quiz-head-collection {
+		position: relative;
+		display: block;
+		background-color: #2b3143;
+		width: 400px;
+		max-width: 400px;
+		margin-left: auto !important;
+		margin-right: auto !important;
+
+		-webkit-transform: skewY(-2deg);
+		-moz-transform: skewY(-2deg);
+		transform: skewY(-2deg);
+	}
+
+	.daily-head-collection:before,
+	.weekly-head-collection:before,
+	.article-head-collection:before,
+	.quiz-head-collection:before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		background-color: #2b3143;
+	}
+
+	.daily-head-collection:after,
+	.weekly-head-collection:after {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 10px;
+		left: 10px;
+		z-index: -2;
+		background-color: #ED523A;
+	}
+
+	.article-head-collection:after {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 10px;
+		left: 10px;
+		z-index: -2;
+		background-color: #97ABFF;
+	}
+
+	.quiz-head-collection:after {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 10px;
+		left: 10px;
+		z-index: -2;
+		background-color: #FEB94D;
+	}
+
+	.head-big-head {
+		display: block;
+		color: #fff;
+		text-align: center;
+		margin: 10px 50px;
+		font-family: 'db_airystd_bd';
+		font-size: 3.2rem;
+	}
+
+	.head-big-head span {
+		color: #fe7827;
+	}
+
+	.body-collection {
+		margin-top: 100px;
+	}
+
+	.daily-body-collection {
+		width: 100%;
+	}
+
+	.daily-head-label {
+		font-family: 'db_airystd_li_it';
+		font-size: 2.3rem;
+		text-align: center;
+		display: block;
+	}
+
+	.daily-card-collection {
+		width: 90%;
+		text-align: center;
+		margin-right: auto !important;
+		margin-left: auto !important;
+	}
+
+	.each-daily-tarot-card {
+		display: inline-block;
+		position: relative;
+		cursor: pointer;
+		width: 194px;
+		height: 288px;
+
+		-webkit-transition: all .3s ease-out;
+		-moz-transition: all .3s ease-out;
+		transition: all .3s ease-out;
+	}
+
+
+	.img-each-daily-tarot-card {
+		width: 100%;
+		height: 100%;
+		border: 4px solid #fff;
+		background: url(../image/v02/a-duang-card-2.png) no-repeat center;
+		background-size: cover;
+
+		-webkit-transition: all .1s ease-out;
+		-moz-transition: all .1s ease-out;
+		transition: all .1s ease-out;
+	}
+
+	.img-each-daily-tarot-card:hover,
+	.img-each-daily-tarot-card:focus {
+		-webkit-transform:translateY(-20px);
+		-moz-transform: translateY(-20px);
+		transform: translateY(-20px);
+
+		background: url(../image/v02/a-duang-card-2-2.png) no-repeat center;
+		background-size: cover;
+	}
+
+	/*.each-daily-tarot-card:before {
+		position: absolute;
+		content: "";
+		width: 100%;
+		height: 100%;
+		background: url(../image/v02/a-duang-card-2.png) no-repeat;
+		border: 4px solid #fff;
+
+		-webkit-background-size: cover;
+	}*/
+
+	.each-daily-tarot-card:nth-child(2),
+	.each-daily-tarot-card:nth-child(3),
+	.each-daily-tarot-card:nth-child(4),
+	.each-daily-tarot-card:nth-child(5),
+	.each-daily-tarot-card:nth-child(6),
+	.each-daily-tarot-card:nth-child(7),
+	.each-daily-tarot-card:nth-child(8) {
+		margin-left: -90px;
+	}
+
+	.each-daily-tarot-card:nth-child(1) {
+		transform: rotateZ(-33deg) translateY(115px);
+	}
+
+	.each-daily-tarot-card:nth-child(2) {
+		transform: rotateZ(-20deg) translateY(60px);
+	}
+
+	.each-daily-tarot-card:nth-child(3) {
+		transform: rotateZ(-10deg) translateY(30px);
+	}
+
+	.each-daily-tarot-card:nth-child(4) {
+		transform: rotateZ(-3deg) translateY(10px);
+	}
+
+	.each-daily-tarot-card:nth-child(5) {
+		transform: rotateZ(3deg) translateY(10px);
+	}
+
+	.each-daily-tarot-card:nth-child(6) {
+		transform: rotateZ(10deg) translateY(30px);
+	}
+
+	.each-daily-tarot-card:nth-child(7) {
+		transform: rotateZ(20deg) translateY(60px);
+	}
+
+	.each-daily-tarot-card:nth-child(8) {
+		transform: rotateZ(33deg) translateY(115px);
+	}
+
+
+	.third-content--collection {
+		position: relative;
+		background: url(../image/v02/bg-1.png) no-repeat;
+		background-size: cover;
+		padding: 70px 20px;
+	}
+
+	.each-tarot-card-collection {
+		position: relative;
+		display: block;
+		width: 200px;
+		height: 300px;
+		margin-left: auto;
+		margin-right: auto;
+
+		-webkit-transform: rotateZ(-10deg);
+		-moz-transform: rotateZ(-10deg);
+		transform: rotateZ(-10deg);
+	}
+
+	.each-tarot-card-collection:before {
+		background: url(../image/v02/706254.jpg) no-repeat;
+		background-size: cover;
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border: 5px solid #fff;
+		z-index: 1;
+	}
+
+	.each-tarot-card-collection:after {
+		background: url(../image/v02/a-duang-card-2.png) no-repeat;
+		background-position: center;
+		background-size: cover;
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 100px;
+		width: 88%;
+		height: 88%;
+		border: 5px solid #fff;
+		z-index: -1;
+
+		transform: rotateZ(20deg);
+	}
+
+	.tarot-card-name,
+	.tarot-card-meaning {
+		color: #fff;
+		font-family: 'db_airystd';
+		font-size: 1.5rem;
+	}
+
+	.tarot-card-name {
+		font-family: 'db_airystd_bd';
+		font-size: 2.7rem;
+		color: #fe7827;
+	}
+
+	.weekly-btn--zodiac {
+		margin-bottom: 50px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	.weekly-btn-zodiac-link {
+		display: block;
+
+		-webkit-transition: all .1s ease-out;
+		-moz-transition: all .1s ease-out;
+		transition: all .1s ease-out;
+	}
+
+	.weekly-btn-zodiac-link:hover,
+	.weekly-btn-zodiac-link:active {
+		-webkit-transform: translateY(-20px);
+		-moz-transform: translateY(-20px);
+		transform: translateY(-20px);
+	}
+
+	.img-weekly-btn {
+		display: block;
+		width: 85%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.each-article-btn {
+		margin-bottom: 40px;
+	}
+
+	.each-article-btn-link {
+		background: #fff;
+		display: block;
+		box-shadow: 0px 3px 3px rgba(0,0,0,.1);
+		font-family: 'db_airystd';
+		font-size: 1.4rem;
+		color: #2b3143;
+		border-radius: 3px;
+	}
+
+	.each-article-btn-link:hover,
+	.each-article-btn-link:focus,
+	.each-article-btn-link:active {
+		color: #2b3143;
+		text-decoration: none;
+	}
+
+	.each-article-cover-pic {
+		width: 100%;
+		min-height: 170px;
+		background-color: #2b3143;
+	}
+
+	.each-article-info-collection {
+		padding: 10px;
+	}
+
+	.each-article-creator {
+		font-size: 1.4rem;
+		margin-bottom: 5px;
+	}
+
+	.each-article-name {
+		font-weight: 700;
+		color: #fe7827;
+		margin-bottom: 0;
+		overflow: hidden;
+	    text-overflow: ellipsis; 
+	    white-space: nowrap; 
+	    font-size: 1.5rem;
+	}
+
+	.each-article-creator span {
+		font-weight: 700;
+	}
+
+	.article-see-more-btn-collection {
+		text-align: center;
+	}
+
+	.article-see-more-btn-collection {
+		margin-top: 40px;
+	}
+
+	.article-see-more-btn {
+		width: 30%;
+		margin-right: auto;
+		margin-left: auto;
+		display: block;
+		color: #fe7827;
+		font-family: 'db_airystd_bd';
+		font-size: 1.8rem;
+		border: 1px solid #fe7827;
+		padding: 8px;
+		box-shadow: 15px 15px 0px 0px #fe7827, 14px 14px 0px 0px #fe7827, 13px 13px 0px 0px #fe7827, 12px 12px 0px 0px #fe7827, 11px 11px 0px 0px #fe7827, 10px 10px 0px 0px #fe7827, 9px 9px 0px 0px #fe7827, 8px 8px 0px 0px #fe7827, 7px 7px 0px 0px #fe7827, 6px 6px 0px 0px #fe7827, 5px 5px 0px 0px #fe7827, 4px 4px 0px 0px #fe7827, 3px 3px 0px 0px #fe7827, 2px 2px 0px 0px #fe7827, 1px 1px 0px 0px #fe7827, 0px 0px 0px 0px #fe7827;
+
+		-webkit-transition: all .3s ease;
+		-moz-transition: all .3s ease;
+		transition: all .3s ease; 
+	}
+
+	.article-see-more-btn:hover,
+	.article-see-more-btn:focus,
+	.article-see-more-btn:active {
+		text-decoration: none;
+		color: #fe7827;
+		box-shadow: 0px 0px 0px 0px #fe7827;
+	}
+}
+
+@media(min-width: 1440px) {
+	.wrapper {
+		min-height: 900px;
+	}
+
+	#mascot-7 {
+		left: 22%;
+		top: 23%;
+	}
+
+	#mascot-8 {
+		top: 20%;
+	}
+}
+
+@media(min-width: 1920px) {
+	.wrapper {
+		min-height: 950px;
+	}
+
+	#mascot-1 {
+		@include dimension(150px);
+
+		z-index: 20;
+		bottom: -4%;
+		left: 85%;
+	}
+
+	#mascot-2 {
+		@include dimension(200px);
+
+		z-index: 10;
+		bottom: -4%;
+		left: 70%;
+	}
+
+	#mascot-3 {
+		@include dimension(200px);
+		z-index: 25;
+		bottom: -3%;
+		left: 43%;
+	}
+
+	#mascot-4 {
+		@include dimension(200px);
+		z-index: 20;
+		bottom: -6%;
+		left: 20%;
+	}
+
+	#mascot-5 {
+		@include dimension(200px);
+		z-index: 15;
+		bottom: -3%;
+		left: 0%;
+	}
+
+	#mascot-6 {
+		@include dimension(200px);
+		z-index: 15;
+		top: 20%;
+		left: -1.5%;
+	}
+
+	#mascot-7 {
+		@include dimension(200px);
+		z-index: 0;
+		top: 25%;
+		left: 28%;
+	}
+
+	#mascot-8 {
+		@include dimension(200px);
+		z-index: 0;
+		top: 21%;
+		left: 59%;
+	}
+
+	.mascot-day1 .img-mascot {
+		width: 280px;
+	}
+
+	.mascot-day2 .img-mascot {
+		width: 240px;
+	}
+
+	.mascot-day3 .img-mascot {
+		width: 300px;
+	}
+
+	.mascot-day4 .img-mascot {
+		width: 270px;
+	}
+
+	.mascot-day5 .img-mascot {
+		width: 250px;
+	}
+
+	.mascot-day6 .img-mascot {
+		width: 220px;
+	}
+
+	.mascot-day7 .img-mascot {
+		width: 205px;
+	}
+
+	.mascot-day8 .img-mascot {
+		width: 200px;
+	}
+}
+
+@media(min-width: 2048px) {
+	#mascot-7 {
+		@include dimension(200px);
+		z-index: 0;
+		top: 25%;
+		left: 30%;
+	}
+
+	.each-daily-tarot-card:nth-child(1) {
+		transform: rotateZ(-33deg) translateY(115px);
+	}
+
+	.each-daily-tarot-card:nth-child(2) {
+		transform: rotateZ(-20deg) translateY(60px);
+	}
+
+	.each-daily-tarot-card:nth-child(3) {
+		transform: rotateZ(-10deg) translateY(30px);
+	}
+
+	.each-daily-tarot-card:nth-child(4) {
+		transform: rotateZ(-3deg) translateY(10px);
+	}
+
+	.each-daily-tarot-card:nth-child(5) {
+		transform: rotateZ(3deg) translateY(10px);
+	}
+
+	.each-daily-tarot-card:nth-child(6) {
+		transform: rotateZ(10deg) translateY(30px);
+	}
+
+	.each-daily-tarot-card:nth-child(7) {
+		transform: rotateZ(20deg) translateY(60px);
+	}
+
+	.each-daily-tarot-card:nth-child(8) {
+		transform: rotateZ(33deg) translateY(115px);
+	}
+}
+
+@media(min-width: 4096px) {
+	.wrapper {
+		min-height: 2000px;
+	}
+
+	#mascot-1 {
+		@include dimension(150px);
+
+		z-index: 20;
+		bottom: -2%;
+		left: 85%;
+	}
+
+	#mascot-2 {
+		@include dimension(200px);
+
+		z-index: 10;
+		bottom: -2%;
+		left: 70%;
+	}
+
+	#mascot-3 {
+		@include dimension(200px);
+		z-index: 25;
+		bottom: -1%;
+		left: 43%;
+	}
+
+	#mascot-4 {
+		@include dimension(200px);
+		z-index: 20;
+		bottom: -4%;
+		left: 20%;
+	}
+
+	#mascot-5 {
+		@include dimension(200px);
+		z-index: 15;
+		bottom: -2%;
+		left: 0%;
+	}
+
+	#mascot-6 {
+		@include dimension(200px);
+		z-index: 15;
+		top: 20%;
+		left: -1.5%;
+	}
+
+	#mascot-7 {
+		@include dimension(200px);
+		z-index: 0;
+		top: 28%;
+		left: 31%;
+	}
+
+	#mascot-8 {
+		@include dimension(200px);
+		z-index: 0;
+		top: 25%;
+		left: 59%;
+	}
+
+	.mascot-day1 .img-mascot {
+		width: 480px;
+	}
+
+	.mascot-day2 .img-mascot {
+		width: 440px;
+	}
+
+	.mascot-day3 .img-mascot {
+		width: 500px;
+	}
+
+	.mascot-day4 .img-mascot {
+		width: 470px;
+	}
+
+	.mascot-day5 .img-mascot {
+		width: 450px;
+	}
+
+	.mascot-day6 .img-mascot {
+		width: 420px;
+	}
+
+	.mascot-day7 .img-mascot {
+		width: 405px;
+	}
+
+	.mascot-day8 .img-mascot {
+		width: 400px;
+	}
+
+	.big-body-label {
+		font-size: 16rem;
+	}
+
+	.small-body-label {
+		font-size: 10rem;
+		line-height: 1rem;
+		margin-bottom: 70px;
+	}
+
+	.head-label {
+		font-size: 8rem;
+	}
+
+	.body-label--collection:after {
+		top: 40px;
+		left: 40px;
+	}
+
+	.daily-head-collection, 
+	.weekly-head-collection, 
+	.article-head-collection, 
+	.quiz-head-collection {
+		width: 100%;
+		max-width: 700px;
+	}
+
+	.head-big-head {
+		font-size: 5rem;
+	}
+
+	.second-content--collection .container,
+	.third-content--collection .container,
+	.fourth-content--collection .container, 
+	.fifth-content--collection .container, 
+	.sixth-content--collection .container {
+		max-width: 1600px;
+	}
+
+	.tarot-card-name, .tarot-card-meaning {
+		font-size: 3rem;
+	}
+
+	.tarot-card-name {
+		font-size: 3.5rem;
+	}
+
+	.each-article-creator {
+		font-size: 3rem;
+	}
+
+	.each-article-name {
+		font-size: 3.3rem;
+	}
+}
